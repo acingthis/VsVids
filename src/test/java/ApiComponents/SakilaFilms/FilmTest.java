@@ -6,7 +6,6 @@ public class FilmTest {
     Film film = new Film(1,"Title","Desc",1,1,1,1);
 
     //Getters
-
     @Test
     public void testGetActorId()
     {
@@ -50,7 +49,6 @@ public class FilmTest {
     }
 
     //setters
-
     @Test
     public void testSetActorId()
     {

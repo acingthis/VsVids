@@ -44,10 +44,7 @@ public class Film {
         this.replacementCost = replacementCost;
     }
 
-    public Film()
-    {
-
-    }
+    public Film() {}
 
     //Methods
     public int getFilmId() { return filmId; }

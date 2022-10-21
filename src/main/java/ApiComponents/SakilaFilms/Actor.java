@@ -26,8 +26,7 @@ public class Actor {
         this.lastName = lastName;
     }
 
-    public Actor()
-    {}
+    public Actor() {}
 
     //Methods
 

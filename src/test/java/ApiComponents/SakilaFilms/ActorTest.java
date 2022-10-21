@@ -6,6 +6,7 @@ public class ActorTest {
     Actor actor = new Actor(1, "first", "last");
 
 
+    //Getters
     @Test
     public void testGetActorId()
     {
@@ -25,6 +26,7 @@ public class ActorTest {
 
     }
 
+    //Setters
     @Test
     public void testSetActorId()
     {
