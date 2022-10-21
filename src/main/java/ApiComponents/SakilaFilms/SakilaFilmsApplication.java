@@ -4,6 +4,7 @@ import org.apache.maven.wagon.ResourceDoesNotExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.ResourceAccessException;
@@ -28,11 +29,19 @@ public class SakilaFilmsApplication {
 		SpringApplication.run(SakilaFilmsApplication.class, args);
 	}
 
-	@GetMapping("/allFilms")
+	@GetMapping("/films")
 	public @ResponseBody
 	Iterable<Film> getAllFilms()
 	{
 		return filmRepo.findAll();
+	}
+
+	@GetMapping("/films/{id}")
+	public ResponseEntity<Film> getFilmId(@PathVariable(value = "id") int filmId)
+			throws ResourceAccessException {
+		Film film = filmRepo.findById(filmId)
+				.orElseThrow(() -> new ResourceAccessException("Film not found for this id: " + filmId));
+		return ResponseEntity.ok().body(film);
 	}
 
 	@GetMapping("/actors")
@@ -46,31 +55,39 @@ public class SakilaFilmsApplication {
 	public ResponseEntity<Actor> getActorId(@PathVariable(value = "id") int actorId)
 			throws ResourceAccessException {
 		Actor actor = actorRepo.findById(actorId)
-				.orElseThrow(() -> new ResourceAccessException("Actor not found for this id :: " + actorId));
+				.orElseThrow(() -> new ResourceAccessException("Actor not found for this id: " + actorId));
 		return ResponseEntity.ok().body(actor);
 	}
 
-	/*
-	@PostMapping("/actors")
-	public Actor createActor(@RequestBody Actor actor) {
-		return actorRepo.save(actor);
-	}
-	 */
-
 	@PutMapping("/actors/{id}")
 	public ResponseEntity<Actor> updateActor(@PathVariable int id,@RequestBody Actor actorDetails) {
-		Actor updateEmployee = actorRepo.findById(id)
+		Actor updateActor = actorRepo.findById(id)
 				.orElseThrow(() -> new ResourceAccessException("Actor doesn't exist with id: " + id));
 
-		updateEmployee.setFirstName(actorDetails.getFirstName());
-		updateEmployee.setLastName(actorDetails.getLastName());
+		updateActor.setFirstName(actorDetails.getFirstName());
+		updateActor.setLastName(actorDetails.getLastName());
 
-		actorRepo.save(updateEmployee);
+		actorRepo.save(updateActor);
 
-		return ResponseEntity.ok(updateEmployee);
+		return ResponseEntity.ok(updateActor);
 	}
 
+	@DeleteMapping("/actors/{id}")
+	public ResponseEntity<HttpStatus> deleteActor(@PathVariable int id) {
+		try {
+			Actor deleteActor = actorRepo.findById(id)
+					.orElseThrow(() -> new ResourceAccessException("Actor doesn't exist with id: " + id));
+			;
 
+			actorRepo.delete(deleteActor);
+
+			return new ResponseEntity<HttpStatus>(HttpStatus.NO_CONTENT);
+		}
+		catch (Exception e)
+		{
+			return new ResponseEntity<HttpStatus>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 
 	 @ResponseBody
 	Iterable<Actor> get()
