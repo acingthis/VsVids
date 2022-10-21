@@ -1,6 +1,5 @@
 package ApiComponents.SakilaFilms;
 
-import org.apache.maven.wagon.ResourceDoesNotExistException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -72,12 +71,23 @@ public class SakilaFilmsApplication {
 		return ResponseEntity.ok(updateActor);
 	}
 
+	@PostMapping("/actors")
+	public ResponseEntity<Actor> save(@RequestBody Actor actorDetails) {
+
+		try {
+			return new ResponseEntity<>(actorRepo.save(actorDetails), HttpStatus.CREATED);
+		}
+		catch (Exception e)
+		{
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
 	@DeleteMapping("/actors/{id}")
 	public ResponseEntity<HttpStatus> deleteActor(@PathVariable int id) {
 		try {
 			Actor deleteActor = actorRepo.findById(id)
 					.orElseThrow(() -> new ResourceAccessException("Actor doesn't exist with id: " + id));
-			;
 
 			actorRepo.delete(deleteActor);
 
