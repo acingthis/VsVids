@@ -42,10 +42,20 @@ public class SakilaFilmsApplication {
 		return actorRepo.findAll();
 	}
 
+	@GetMapping("/actors/{id}")
+	public ResponseEntity<Actor> getActorId(@PathVariable(value = "id") int actorId)
+			throws ResourceAccessException {
+		Actor actor = actorRepo.findById(actorId)
+				.orElseThrow(() -> new ResourceAccessException("Actor not found for this id :: " + actorId));
+		return ResponseEntity.ok().body(actor);
+	}
+
+	/*
 	@PostMapping("/actors")
 	public Actor createActor(@RequestBody Actor actor) {
 		return actorRepo.save(actor);
 	}
+	 */
 
 	@PutMapping("/actors/{id}")
 	public ResponseEntity<Actor> updateActor(@PathVariable int id,@RequestBody Actor actorDetails) {
@@ -54,7 +64,6 @@ public class SakilaFilmsApplication {
 
 		updateEmployee.setFirstName(actorDetails.getFirstName());
 		updateEmployee.setLastName(actorDetails.getLastName());
-		updateEmployee.setActorId(actorDetails.getActorID());
 
 		actorRepo.save(updateEmployee);
 
