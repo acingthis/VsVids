@@ -5,6 +5,11 @@ import org.junit.jupiter.api.Test;
 public class ActorTest {
     Actor actor = new Actor(1, "first", "last");
 
+    @Test
+    void testActor()
+    {
+        Actor testActor = new Actor();
+    }
 
     //Getters
     @Test

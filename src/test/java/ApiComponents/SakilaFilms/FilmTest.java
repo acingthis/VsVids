@@ -6,6 +6,13 @@ public class FilmTest {
 
     Film film = new Film(1,"Title","Desc","PG",1,1,1,1);
 
+
+    @Test
+    void testActor()
+    {
+        Film testFilm = new Film();
+    }
+
     //Getters
     @Test
     void testGetActorId()
