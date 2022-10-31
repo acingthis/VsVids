@@ -33,11 +33,12 @@ public class Film {
     double replacementCost;
 
     //Constructors
-    public Film(int ID, String title, String description, int length, double rentalRate, int rentalDuration, double replacementCost)
+    public Film(int ID, String title, String description,String rating, int length, double rentalRate, int rentalDuration, double replacementCost)
     {
         this.filmId = ID;
         this.title = title;
         this.desc = description;
+        this.rating = rating;
         this.length = length;
         this.rentalRate = rentalRate;
         this.rentalDuration = rentalDuration;
@@ -50,6 +51,7 @@ public class Film {
     public int getFilmId() { return filmId; }
     public String getTitle() { return title; }
     public String getDescription() { return desc; }
+    public String getRating() { return rating; }
     public int getLength() { return length; }
     public double getRentalRate() { return rentalRate; }
     public int getRentalDuration() { return rentalDuration; }
@@ -58,6 +60,7 @@ public class Film {
     public void setFilmId(int ID) { filmId = ID; }
     public void setTitle(String title) { this.title = title; }
     public void setDescription(String description) { this.desc = description; }
+    public void setRating(String rating) { this.rating = rating; }
     public void setLength(int length) { this.length = length; }
     public void setRentalRate(double rentalRate) { this.rentalRate = rentalRate; }
     public void setRentalDuration(int rentalDuration) { this.rentalDuration = rentalDuration; }

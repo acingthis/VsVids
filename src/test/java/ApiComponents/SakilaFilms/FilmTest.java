@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class FilmTest {
-    Film film = new Film(1,"Title","Desc",1,1,1,1);
+    Film film = new Film(1,"Title","Desc","PG",1,1,1,1);
 
     //Getters
     @Test
@@ -13,15 +13,21 @@ public class FilmTest {
     }
 
     @Test
-    public void testGetFirstName()
+    public void testGetTitle()
     {
         Assertions.assertEquals("Title", film.getTitle(),"The Film is not getting the title right");
     }
 
     @Test
-    public void testGetLastName()
+    public void testGetDescription()
     {
         Assertions.assertEquals("Desc", film.getDescription(),"The Film is not getting the Description right");
+    }
+
+    @Test
+    public void testGetRating()
+    {
+        Assertions.assertEquals("PG", film.getRating(),"The Film is not getting the rating right");
     }
 
     @Test
@@ -47,6 +53,7 @@ public class FilmTest {
     {
         Assertions.assertEquals(1, film.getReplacementCost(),"The Film is not getting the replacement cost right");
     }
+
 
     //setters
     @Test
@@ -77,6 +84,16 @@ public class FilmTest {
         film.setDescription("Test");
 
         Assertions.assertEquals("Test", film.getDescription(),"The Film is not setting the description right");
+    }
+
+    @Test
+    public void testSetRating()
+    {
+        Assertions.assertEquals("PG", film.getRating(),"The Film is not getting the rating right");
+
+        film.setRating("Test");
+
+        Assertions.assertEquals("Test", film.getRating(),"The Film is not setting the rating right");
     }
 
     @Test
