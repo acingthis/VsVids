@@ -12,10 +12,10 @@ public class Card {
     Card(int Id)
     {
         this.Id = Id;
-        SetCardInfo();
+        setCardInfo();
     }
 
-    private void SetCardInfo()
+    public void setCardInfo()
     {
         //SakilaFilmsApplication sakila = new SakilaFilmsApplication();
     }

@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Deck {
 
-    HashMap<Integer, Card> Players = new HashMap<Integer, Card>();
+    HashMap<Card, Integer> Players = new HashMap<Card,Integer>();
 
     Deck()
     {
@@ -13,7 +13,7 @@ public class Deck {
     }
 
     //Creates cards and shuffles deck and assigns cards to players
-    private void CreateDeck(int NumCards)
+    public void CreateDeck(int NumCards)
     {
         SecureRandom rand = new SecureRandom();
 
@@ -29,13 +29,14 @@ public class Deck {
         Collections.shuffle(indexes);
 
         //assignment
+        Players.clear();
         for(int x = 0; x < NumCards/2; x++)
         {
-            Players.put(1,new Card(indexes.get(x)));
+            Players.put(new Card(indexes.get(x)),1);
         }
         for(int x = NumCards/2; x < NumCards; x++)
         {
-            Players.put(2,new Card(indexes.get(x)));
+            Players.put(new Card(indexes.get(x)),2);
         }
 
     }
