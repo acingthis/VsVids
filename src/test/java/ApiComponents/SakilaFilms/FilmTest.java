@@ -8,49 +8,49 @@ public class FilmTest {
 
     //Getters
     @Test
-    public void testGetActorId()
+    void testGetActorId()
     {
         Assertions.assertEquals(1, film.getFilmId(),"The Film is not getting the Id right");
     }
 
     @Test
-    public void testGetTitle()
+    void testGetTitle()
     {
         Assertions.assertEquals("Title", film.getTitle(),"The Film is not getting the title right");
     }
 
     @Test
-    public void testGetDescription()
+    void testGetDescription()
     {
         Assertions.assertEquals("Desc", film.getDescription(),"The Film is not getting the Description right");
     }
 
     @Test
-    public void testGetRating()
+    void testGetRating()
     {
         Assertions.assertEquals("PG", film.getRating(),"The Film is not getting the rating right");
     }
 
     @Test
-    public void testGetLength()
+    void testGetLength()
     {
         Assertions.assertEquals(1, film.getLength(),"The Film is not getting the Length right");
     }
 
     @Test
-    public void testGetRentalRate()
+    void testGetRentalRate()
     {
         Assertions.assertEquals(1, film.getRentalRate(),"The Film is not getting the rental rate right");
     }
 
     @Test
-    public void testGetRentalDuration()
+    void testGetRentalDuration()
     {
         Assertions.assertEquals(1, film.getRentalDuration(),"The Film is not getting the rental duration right");
     }
 
     @Test
-    public void testGetReplacementCost()
+    void testGetReplacementCost()
     {
         Assertions.assertEquals(1, film.getReplacementCost(),"The Film is not getting the replacement cost right");
     }
@@ -58,7 +58,7 @@ public class FilmTest {
 
     //setters
     @Test
-    public void testSetActorId()
+    void testSetActorId()
     {
         Assertions.assertEquals(1, film.getFilmId(),"The Film is not getting the Id right");
 
@@ -68,7 +68,7 @@ public class FilmTest {
     }
 
     @Test
-    public void testSetTitle()
+    void testSetTitle()
     {
         Assertions.assertEquals("Title", film.getTitle(),"The Film is not getting the title right");
 
@@ -78,7 +78,7 @@ public class FilmTest {
     }
 
     @Test
-    public void testSetDescription()
+    void testSetDescription()
     {
         Assertions.assertEquals("Desc", film.getDescription(),"The Film is not getting the description right");
 
@@ -88,7 +88,7 @@ public class FilmTest {
     }
 
     @Test
-    public void testSetRating()
+    void testSetRating()
     {
         Assertions.assertEquals("PG", film.getRating(),"The Film is not getting the rating right");
 
@@ -98,7 +98,7 @@ public class FilmTest {
     }
 
     @Test
-    public void testSetLength()
+    void testSetLength()
     {
         Assertions.assertEquals(1, film.getLength(),"The Film is not getting the Length right");
 
@@ -108,7 +108,7 @@ public class FilmTest {
     }
 
     @Test
-    public void testSetRentalRate()
+    void testSetRentalRate()
     {
         Assertions.assertEquals(1, film.getRentalRate(),"The Film is not getting the rental rate right");
 
@@ -118,7 +118,7 @@ public class FilmTest {
     }
 
     @Test
-    public void testSetRentalDuration()
+    void testSetRentalDuration()
     {
         Assertions.assertEquals(1, film.getRentalDuration(),"The Film is not getting the rental duration right");
 
@@ -128,7 +128,7 @@ public class FilmTest {
     }
 
     @Test
-    public void testSetReplacementCost()
+    void testSetReplacementCost()
     {
         Assertions.assertEquals(1, film.getReplacementCost(),"The Film is not getting the replacement cost right");
 

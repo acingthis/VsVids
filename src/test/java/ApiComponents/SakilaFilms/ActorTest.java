@@ -8,19 +8,19 @@ public class ActorTest {
 
     //Getters
     @Test
-    public void testGetActorId()
+    void testGetActorId()
     {
         Assertions.assertEquals(1, actor.getActorId(),"The Actor is not getting the Id right");
     }
 
     @Test
-    public void testGetFirstName()
+    void testGetFirstName()
     {
         Assertions.assertEquals("first", actor.getFirstName(),"The Actor is not getting the first name right");
     }
 
     @Test
-    public void testGetLastName()
+    void testGetLastName()
     {
         Assertions.assertEquals("last", actor.getLastName(),"The Actor is not getting the last name right");
 
@@ -28,7 +28,7 @@ public class ActorTest {
 
     //Setters
     @Test
-    public void testSetActorId()
+    void testSetActorId()
     {
         Assertions.assertEquals(1, actor.getActorId(),"The Actor is not getting the Id right");
 
@@ -38,7 +38,7 @@ public class ActorTest {
     }
 
     @Test
-    public void testSetFirstName()
+    void testSetFirstName()
     {
         Assertions.assertEquals("first", actor.getFirstName(),"The Actor is not getting the first name right");
 
@@ -48,7 +48,7 @@ public class ActorTest {
     }
 
     @Test
-    public void testSetLastName()
+    void testSetLastName()
     {
         Assertions.assertEquals("last", actor.getLastName(),"The Actor is not getting the last name right");
 
