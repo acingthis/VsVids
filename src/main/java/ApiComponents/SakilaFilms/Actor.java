@@ -1,6 +1,4 @@
 package ApiComponents.SakilaFilms;
-
-
 import javax.persistence.*;
 
 @Entity
