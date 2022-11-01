@@ -23,5 +23,6 @@ public class FilmActor {
     public int getFilmId() { return filmId;}
 
     public void setFilmId(int id) { filmId = id; }
+    public void setActors(Collection<FilmActor> actors) { this.actors = actors;}
 
 }

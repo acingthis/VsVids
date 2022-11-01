@@ -28,7 +28,6 @@ public class ActorTest {
     void testGetLastName()
     {
         Assertions.assertEquals("last", actor.getLastName(),"The Actor is not getting the last name right");
-
     }
 
     //Setters

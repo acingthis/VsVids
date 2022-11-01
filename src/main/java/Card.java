@@ -20,5 +20,4 @@ public class Card {
         //SakilaFilmsApplication sakila = new SakilaFilmsApplication();
     }
 
-
 }
