@@ -2,9 +2,14 @@ package ApiComponents.SakilaFilms;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class FilmTest {
 
-    Film film = new Film(1,"Title","Desc","PG",1,1,1,1);
+    Collection<Actor> actors = new ArrayList<>();
+
+    Film film = new Film(1,"Title","Desc","PG",1,1,1,1,actors);
 
 
     @Test

@@ -1,6 +1,7 @@
 package ApiComponents.SakilaFilms;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "film")
@@ -32,8 +33,14 @@ public class Film {
     @Column(name = "replacement_cost")
     double replacementCost;
 
+    @ManyToMany
+    @JoinTable(name = "film_actor",
+            joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id"))
+    Collection<Actor> actors;
+
     //Constructors
-    public Film(int ID, String title, String description,String rating, int length, double rentalRate, int rentalDuration, double replacementCost)
+    public Film(int ID, String title, String description,String rating, int length, double rentalRate, int rentalDuration, double replacementCost, Collection<Actor> actors)
     {
         this.filmId = ID;
         this.title = title;
@@ -43,6 +50,7 @@ public class Film {
         this.rentalRate = rentalRate;
         this.rentalDuration = rentalDuration;
         this.replacementCost = replacementCost;
+        this.actors = actors;
     }
 
     public Film() {}

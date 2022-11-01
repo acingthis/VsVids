@@ -2,8 +2,13 @@ package ApiComponents.SakilaFilms;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class ActorTest {
-    Actor actor = new Actor(1, "first", "last");
+
+    Collection<Actor> films = new ArrayList<>();
+    Actor actor = new Actor(1, "first", "last",films);
 
     @Test
     void testActor()

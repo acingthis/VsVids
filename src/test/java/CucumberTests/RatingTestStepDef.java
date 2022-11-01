@@ -6,14 +6,20 @@ import io.cucumber.java.en.When;
 
 public class RatingTestStepDef {
 
+    String Rating = "";
+
     @Given("a User wants to find films with a rating")
-    public void a_user_wants_to_find_films_with_a_rating() {
-        // Write code here that turns the phrase above into concrete actions
+    public void a_user_wants_to_find_films_with_a_rating(String Rating) {
+
+        this.Rating = Rating;
+
         throw new io.cucumber.java.PendingException();
     }
     @When("the user searches for the films by their rating")
     public void the_user_searches_for_the_films_by_their_rating() {
-        // Write code here that turns the phrase above into concrete actions
+
+
+
         throw new io.cucumber.java.PendingException();
     }
     @Then("The program will return films by their rating")

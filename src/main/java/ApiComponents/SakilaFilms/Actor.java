@@ -1,5 +1,6 @@
 package ApiComponents.SakilaFilms;
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "actor")
@@ -16,12 +17,19 @@ public class Actor {
     @Column(name = "last_name")
     String lastName;
 
+    @ManyToMany
+    @JoinTable(name = "film_actor",
+            joinColumns = @JoinColumn(name = "actor_id"),
+            inverseJoinColumns = @JoinColumn(name = "film_id"))
+    Collection<Actor> films;
+
     //Constructor
-    public Actor(int id, String firstName, String lastName)
+    public Actor(int id, String firstName, String lastName,Collection<Actor> films)
     {
         actorId = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.films = films;
     }
 
     public Actor() {}
