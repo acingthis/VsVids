@@ -58,6 +58,13 @@ public class SakilaFilmsApplication {
 		return filmRepo.findByRating(Rating);
 	}
 
+	@GetMapping("/films/{length}")
+	public ArrayList<Film> getFilmLength(@PathVariable(value = "length") int Length) throws ResourceAccessException {
+		return filmRepo.findByLength(String.valueOf(Length));
+	}
+
+
+
 	@GetMapping("/actors")
 	public @ResponseBody
 	Iterable<Actor> getAllActors()

@@ -12,4 +12,7 @@ public interface FilmRepo extends JpaRepository<Film,Integer> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM sakila.film WHERE rating = ?1")
     ArrayList<Film> findByRating(String Rating);
+
+    @Query(nativeQuery = true, value = "SELECT * FROM sakila.film WHERE length = ?1")
+    ArrayList<Film> findByLength(String length);
 }

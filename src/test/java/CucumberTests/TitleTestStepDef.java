@@ -9,8 +9,6 @@ import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Objects;
 
 public class TitleTestStepDef {
@@ -51,7 +49,7 @@ public class TitleTestStepDef {
     }
     @Then("The program will return {string} with the same name")
     public void theProgramWillReturnFilmNameWithTheSameName(String film) {
-        if (Objects.equals(film, "true"))
+        if (film.equals("true"))
         {
             Assertions.assertEquals(Title,Result.getTitle(), "The Resulting film doesn't have the right name");
         }

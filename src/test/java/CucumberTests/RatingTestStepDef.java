@@ -51,7 +51,7 @@ public class RatingTestStepDef {
 
     @Then("The program will return {string} by their rating")
     public void theProgramWillReturnFilmsByTheirRating(String film) {
-        if (Objects.equals(film, "true"))
+        if (film.equals("true"))
         {
             Assertions.assertNotEquals(0,filmRatings.size(), "The film Rating haven't been Added");
             Assertions.assertEquals(Rating,filmRatings.get(1).getRating(), "The Resulting film doesn't have the right rating");
