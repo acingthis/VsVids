@@ -29,8 +29,7 @@ public class TitleTestStepDef {
     @Before
     public void init() {
         Title = "";
-        Collection<Actor> actors = new ArrayList<>();
-        Result = new Film(1,"None","doesn't exist","PG",1, 1.0,1,1,actors);
+        Result = new Film();
     }
 
     @Given("a User wants to find films with a given name")

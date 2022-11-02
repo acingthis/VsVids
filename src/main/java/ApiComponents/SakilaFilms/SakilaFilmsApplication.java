@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.ResourceAccessException;
 
+import java.util.ArrayList;
+
 @SpringBootApplication
 @RestController
 @RequestMapping("/home")
@@ -51,8 +53,10 @@ public class SakilaFilmsApplication {
 		return ResponseEntity.ok().body(film);
 	}
 
-
-
+	@GetMapping("/films/{rating}")
+	public ArrayList<Film> getFilmRating(@PathVariable(value = "rating") String Rating) throws ResourceAccessException {
+		return filmRepo.findByRating(Rating);
+	}
 
 	@GetMapping("/actors")
 	public @ResponseBody
