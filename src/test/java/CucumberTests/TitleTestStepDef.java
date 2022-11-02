@@ -1,15 +1,17 @@
 package CucumberTests;
 
-import ApiComponents.SakilaFilms.ActorRepo;
-import ApiComponents.SakilaFilms.Film;
-import ApiComponents.SakilaFilms.FilmRepo;
-import ApiComponents.SakilaFilms.SakilaFilmsApplication;
+import ApiComponents.SakilaFilms.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en_old.Ac;
 import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Objects;
 
 public class TitleTestStepDef {
 
@@ -25,9 +27,10 @@ public class TitleTestStepDef {
     Film Result;
 
     @Before
-    private void init() {
+    public void init() {
         Title = "";
-        Result = new Film();
+        Collection<Actor> actors = new ArrayList<>();
+        Result = new Film(1,"None","doesn't exist","PG",1, 1.0,1,1,actors);
     }
 
     @Given("a User wants to find films with a given name")
@@ -48,7 +51,14 @@ public class TitleTestStepDef {
         Title = title;
     }
     @Then("The program will return {string} with the same name")
-    public void theProgramWillReturnFilmNameWithTheSameName(String filmName) {
-        Assertions.assertEquals(filmName,Result.getTitle(), "The Resulting film doesn't have the right name");
+    public void theProgramWillReturnFilmNameWithTheSameName(String film) {
+        if (Objects.equals(film, "true"))
+        {
+            Assertions.assertEquals(Title,Result.getTitle(), "The Resulting film doesn't have the right name");
+        }
+        else
+        {
+            Assertions.assertNull(Result, "The Resulting film shouldn't have the same name");
+        }
     }
 }
