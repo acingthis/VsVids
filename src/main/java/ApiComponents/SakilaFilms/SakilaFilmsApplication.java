@@ -44,14 +44,13 @@ public class SakilaFilmsApplication {
 				.orElseThrow(() -> new ResourceAccessException("Film not found for this id: " + filmId));
 		return ResponseEntity.ok().body(film);
 	}
-/*
+
 	@GetMapping("/films/{title}")
 	public ResponseEntity<Film> getFilmTitle(@PathVariable(value = "title") String Title) throws ResourceAccessException {
 		Film film = filmRepo.findByName(Title);
 		return ResponseEntity.ok().body(film);
 	}
 
- */
 
 
 

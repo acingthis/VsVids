@@ -29,7 +29,7 @@ public class TitleTestStepDef {
     }
     @When("the user searches for the films by using their name")
     public void the_user_searches_for_the_films_by_using_their_name() {
-        //Result = testSakila.getFilmName();
+        Result = testSakila.getFilmTitle(Title).getBody();
     }
     @Then("The program will return films with the same name")
     public void the_program_will_return_films_with_the_same_name() {
