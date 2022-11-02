@@ -64,6 +64,7 @@ public class Film {
     public double getRentalRate() { return rentalRate; }
     public int getRentalDuration() { return rentalDuration; }
     public double getReplacementCost() { return replacementCost; }
+    public Collection<Actor> getActors() { return actors; }
 
     public void setFilmId(int ID) { filmId = ID; }
     public void setTitle(String title) { this.title = title; }
@@ -73,4 +74,5 @@ public class Film {
     public void setRentalRate(double rentalRate) { this.rentalRate = rentalRate; }
     public void setRentalDuration(int rentalDuration) { this.rentalDuration = rentalDuration; }
     public void setReplacementCost(double replacementCost) { this.replacementCost = replacementCost; }
+    public void setActor(Collection<Actor> actors) { this.actors = actors; }
 }

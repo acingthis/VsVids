@@ -67,6 +67,12 @@ public class FilmTest {
         Assertions.assertEquals(1, film.getReplacementCost(),"The Film is not getting the replacement cost right");
     }
 
+    @Test
+    void testGetActors()
+    {
+        Assertions.assertEquals(0, film.getActors().size(),"The Film is not getting the size of the actors right");
+    }
+
 
     //setters
     @Test
@@ -147,6 +153,16 @@ public class FilmTest {
         film.setReplacementCost(2);
 
         Assertions.assertEquals(2, film.getReplacementCost(),"The Film is not setting the replacement cost right");
+    }
+
+    @Test
+    void testSetActors()
+    {
+        Assertions.assertEquals(0, film.getActors().size(),"The Film is not getting the size of the actors right");
+
+        film.actors.add(new Actor());
+
+        Assertions.assertEquals(1, film.getActors().size(),"The Film is not getting the size of the actors right");
     }
 
 }

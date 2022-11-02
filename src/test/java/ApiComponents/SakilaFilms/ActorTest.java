@@ -7,7 +7,7 @@ import java.util.Collection;
 
 public class ActorTest {
 
-    Collection<Actor> films = new ArrayList<>();
+    Collection<Film> films = new ArrayList<>();
     Actor actor = new Actor(1, "first", "last",films);
 
     @Test
@@ -33,6 +33,12 @@ public class ActorTest {
     void testGetLastName()
     {
         Assertions.assertEquals("last", actor.getLastName(),"The Actor is not getting the last name right");
+    }
+
+    @Test
+    void testGetFilms()
+    {
+        Assertions.assertEquals(0, actor.getFilms().size(),"The Actor is not getting the size of the films right");
     }
 
     //Setters
@@ -64,5 +70,15 @@ public class ActorTest {
         actor.setLastName("Test");
 
         Assertions.assertEquals("Test", actor.getLastName(),"The Last name is not getting set right");
+    }
+
+    @Test
+    void testSetActors()
+    {
+        Assertions.assertEquals(0, actor.getFilms().size(),"The Actor is not getting the size of the films right");
+
+        actor.films.add(new Film());
+
+        Assertions.assertEquals(1, actor.getFilms().size(),"The Actor is not getting the size of the films right");
     }
 }

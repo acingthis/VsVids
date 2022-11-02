@@ -21,10 +21,10 @@ public class Actor {
     @JoinTable(name = "film_actor",
             joinColumns = @JoinColumn(name = "actor_id"),
             inverseJoinColumns = @JoinColumn(name = "film_id"))
-    Collection<Actor> films;
+    Collection<Film> films;
 
     //Constructor
-    public Actor(int id, String firstName, String lastName,Collection<Actor> films)
+    public Actor(int id, String firstName, String lastName,Collection<Film> films)
     {
         actorId = id;
         this.firstName = firstName;
@@ -39,9 +39,11 @@ public class Actor {
     public int getActorId() { return actorId;}
     public String getFirstName() { return firstName;}
     public String getLastName() { return lastName;}
+    public Collection<Film> getFilms() { return films; }
 
     public void setActorId(int id) { actorId = id; }
     public void setFirstName(String firstName) { this.firstName = firstName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
+    public void setLastName(Collection<Film> films) { this.films = films; }
 
 }
