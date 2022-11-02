@@ -6,3 +6,16 @@ Feature: This will find a film with a name.
     Given a User wants to find films with a given name
     When the user searches for the films by using their name
     Then The program will return films with the same name
+
+  Scenario Outline: Finds films with set names
+
+    Given a User wants to find films with a given name <title>
+    When the user searches for the films by using their name
+    Then The program will return <filmName> with the same name
+
+    Examples:
+      | title | filmName |
+      | "ACADEMY DINOSAUR" | "ACADEMY DINOSAUR" |
+      |  "ACE GOLDFINGER"  |  "ACE GOLDFINGER"  |
+      | "ADAPTATION HOLES" | "ADAPTATION HOLES" |
+      | "AFFAIR PREJUDICE" | "AFFAIR PREJUDICE" |

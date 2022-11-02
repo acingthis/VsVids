@@ -1,4 +1,6 @@
 package ApiComponents.SakilaFilms;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -21,6 +23,7 @@ public class Actor {
     @JoinTable(name = "film_actor",
             joinColumns = @JoinColumn(name = "actor_id"),
             inverseJoinColumns = @JoinColumn(name = "film_id"))
+    @JsonIgnore
     Collection<Film> films;
 
     //Constructor

@@ -7,6 +7,7 @@ import ApiComponents.SakilaFilms.SakilaFilmsApplication;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,6 +24,12 @@ public class TitleTestStepDef {
     String Title;
     Film Result;
 
+    @Before
+    private void init() {
+        Title = "";
+        Result = new Film();
+    }
+
     @Given("a User wants to find films with a given name")
     public void a_user_wants_to_find_films_with_a_given_name() {
         Title = "ACADEMY DINOSAUR";
@@ -34,5 +41,14 @@ public class TitleTestStepDef {
     @Then("The program will return films with the same name")
     public void the_program_will_return_films_with_the_same_name() {
         Assertions.assertEquals("ACADEMY DINOSAUR",Result.getTitle(), "The Resulting film doesn't have the right name");
+    }
+
+    @Given("a User wants to find films with a given name {string}")
+    public void aUserWantsToFindFilmsWithAGivenNameTitle(String title) {
+        Title = title;
+    }
+    @Then("The program will return {string} with the same name")
+    public void theProgramWillReturnFilmNameWithTheSameName(String filmName) {
+        Assertions.assertEquals(filmName,Result.getTitle(), "The Resulting film doesn't have the right name");
     }
 }
