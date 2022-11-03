@@ -1,5 +1,7 @@
 package ApiComponents.SakilaFilms;
 
+import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -14,7 +16,7 @@ class SakilaFilmsApplicationTests {
     {
         SakilaFilmsApplication testSakila = mock(SakilaFilmsApplication.class);
 
-        testSakila.getAllFilms();
+        Assertions.assertNotNull(testSakila.getAllFilms());
 
         verify(testSakila).getAllFilms();
     }
