@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
+import java.util.List;
 
 import static org.mockito.Mockito.*;
 
@@ -23,14 +23,14 @@ class SakilaFilmsApplicationTests {
     Film testFilm = new Film(1,"Title","DESC","PG",1,1,1,1,new ArrayList<>());
     Film testFilm2 = new Film(2,"Test","DESC","G",1,1,1,1,new ArrayList<>());
 
-    Collection<Film> allFilms = Arrays.asList(testFilm,testFilm2);
+    List<Film> allFilms = Arrays.asList(testFilm,testFilm2);
 
 
 
     @Test
     void testGetAllFilms()
     {
-        when(testSakila.getAllFilms()).thenReturn(allFilms);
+        when(filmRepo.findAll()).thenReturn(allFilms);
 
         Assertions.assertEquals(allFilms,testSakila.getAllFilms(),"can't retrieve all films");
 
