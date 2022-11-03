@@ -32,7 +32,9 @@ class SakilaFilmsApplicationTests {
     {
         when(filmRepo.findAll()).thenReturn(allFilms);
 
-        Assertions.assertEquals(allFilms,testSakila.getAllFilms(),"can't retrieve all films");
+        Iterable<Film> actualResult = testSakila.getAllFilms();
+
+        Assertions.assertEquals(allFilms,actualResult,"can't retrieve all films");
 
         //verify(testSakila).getAllFilms();
     }
