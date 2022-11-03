@@ -2,14 +2,15 @@ package ApiComponents.SakilaFilms;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
+@RunWith(MockitoJUnitRunner.class)
 class SakilaFilmsApplicationTests {
 
     @Autowired
@@ -17,8 +18,7 @@ class SakilaFilmsApplicationTests {
     @Autowired
     FilmRepo filmRepo;
 
-    @Mock
-    SakilaFilmsApplication testSakila = new SakilaFilmsApplication(actorRepo,filmRepo);
+    SakilaFilmsApplication testSakila = mock(SakilaFilmsApplication.class);
 
     @Test
     void testGetAllFilms()
