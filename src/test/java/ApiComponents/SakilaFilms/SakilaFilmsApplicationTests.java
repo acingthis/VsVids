@@ -1,9 +1,9 @@
 package ApiComponents.SakilaFilms;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
@@ -12,7 +12,9 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
 class SakilaFilmsApplicationTests {
 
+    @Autowired
     ActorRepo actorRepo;
+    @Autowired
     FilmRepo filmRepo;
 
     @Mock
