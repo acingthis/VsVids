@@ -10,33 +10,25 @@ import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
 class SakilaFilmsApplicationTests {
 
 
     ActorRepo actorRepo = mock(ActorRepo.class);
-
     FilmRepo filmRepo = mock(FilmRepo.class);
-
     SakilaFilmsApplication testSakila = new SakilaFilmsApplication(actorRepo,filmRepo);
 
     Film testFilm = new Film(1,"Title","DESC","PG",1,1,1,1,new ArrayList<>());
     Film testFilm2 = new Film(2,"Test","DESC","G",1,1,1,1,new ArrayList<>());
-
-    List<Film> allFilms = Arrays.asList(testFilm,testFilm2);
-
-
+    List<Film> allFilmsReturn = Arrays.asList(testFilm,testFilm2);
 
     @Test
     void testGetAllFilms()
     {
-        when(filmRepo.findAll()).thenReturn(allFilms);
+        when(filmRepo.findAll()).thenReturn(allFilmsReturn);
 
         Iterable<Film> actualResult = testSakila.getAllFilms();
 
-        Assertions.assertEquals(allFilms,actualResult,"can't retrieve all films");
-
-        //verify(testSakila).getAllFilms();
+        Assertions.assertEquals(allFilmsReturn,actualResult,"can't retrieve all films");
     }
 /*
     @Test
