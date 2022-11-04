@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @SpringBootApplication
 @RestController
 @RequestMapping("/home")
-@CrossOrigin
+@CrossOrigin("http://localhost:8080")
 public class SakilaFilmsApplication {
 
 	@Autowired
@@ -75,10 +75,11 @@ public class SakilaFilmsApplication {
 
 	@PutMapping("/actors/{id}")
 	public ResponseEntity<Actor> updateActor(@PathVariable int id,@RequestBody Actor actorDetails) {
+		Actor actor = new Actor(actorDetails.getActorId(),actorDetails.getFirstName(),actorDetails.getLastName(),actorDetails.getFilms());
 		Actor updateActor = actorRepo.findById(id).orElseThrow(() -> new ResourceAccessException("Actor doesn't exist with id: " + id));
 
-		updateActor.setFirstName(actorDetails.getFirstName());
-		updateActor.setLastName(actorDetails.getLastName());
+		updateActor.setFirstName(actor.getFirstName());
+		updateActor.setLastName(actor.getLastName());
 
 		actorRepo.save(updateActor);
 

@@ -16,6 +16,7 @@ public class FilmTest {
     void testActor()
     {
         Film testFilm = new Film();
+        Assertions.assertNotNull(testFilm);
     }
 
     //Getters

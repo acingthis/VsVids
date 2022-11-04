@@ -14,6 +14,7 @@ public class ActorTest {
     void testActor()
     {
         Actor testActor = new Actor();
+        Assertions.assertNotNull(testActor);
     }
 
     //Getters
