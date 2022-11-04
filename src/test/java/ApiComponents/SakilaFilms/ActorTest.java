@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class ActorTest {
+class ActorTest {
 
     Collection<Film> films = new ArrayList<>();
     Actor actor = new Actor(1, "first", "last",films);

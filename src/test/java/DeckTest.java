@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class DeckTest {
+class DeckTest {
 
     Deck testDeck = new Deck();
 
