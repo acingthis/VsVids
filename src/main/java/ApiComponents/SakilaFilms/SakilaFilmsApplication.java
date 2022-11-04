@@ -41,14 +41,12 @@ public class SakilaFilmsApplication {
 
 	@GetMapping("/filmId/{id}")
 	public Film getFilmId(@PathVariable(value = "id") int filmId) throws ResourceAccessException {
-		Film film = filmRepo.findById(filmId).orElseThrow(() -> new ResourceAccessException("Film not found for this id: " + filmId));
-		return film;
+		return filmRepo.findById(filmId).orElseThrow(() -> new ResourceAccessException("Film not found for this id: " + filmId));
 	}
 
 	@GetMapping("/filmTitle/{title}")
 	public Film getFilmTitle(@PathVariable(value = "title") String Title) throws ResourceAccessException {
-		Film film = filmRepo.findByName(Title);
-		return film;
+		return filmRepo.findByName(Title);
 	}
 
 	@GetMapping("/filmRating/{rating}")
@@ -72,8 +70,7 @@ public class SakilaFilmsApplication {
 
 	@GetMapping("/actors/{id}")
 	public Actor getActorId(@PathVariable(value = "id") int actorId) throws ResourceAccessException {
-		Actor actor = actorRepo.findById(actorId).orElseThrow(() -> new ResourceAccessException("Actor not found for this id: " + actorId));
-		return actor;
+		return actorRepo.findById(actorId).orElseThrow(() -> new ResourceAccessException("Actor not found for this id: " + actorId));
 	}
 
 	@PutMapping("/actors/{id}")
