@@ -160,7 +160,9 @@ public class FilmTest {
     {
         Assertions.assertEquals(0, film.getActors().size(),"The Film is not getting the size of the actors right");
 
-        film.actors.add(new Actor());
+        actors.add(new Actor());
+
+        film.setActor(actors);
 
         Assertions.assertEquals(1, film.getActors().size(),"The Film is not getting the size of the actors right");
     }

@@ -47,6 +47,6 @@ public class Actor {
     public void setActorId(int id) { actorId = id; }
     public void setFirstName(String firstName) { this.firstName = firstName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
-    public void setLastName(Collection<Film> films) { this.films = films; }
+    public void setFilms(Collection<Film> films) { this.films = films; }
 
 }
