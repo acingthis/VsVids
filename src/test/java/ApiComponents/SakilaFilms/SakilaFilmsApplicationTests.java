@@ -19,10 +19,16 @@ class SakilaFilmsApplicationTests {
     FilmRepo filmRepo = mock(FilmRepo.class);
     SakilaFilmsApplication testSakila = new SakilaFilmsApplication(actorRepo,filmRepo);
 
+    //Test Objects
     Film testFilm = new Film(1,"Title","DESC","PG",1,1,1,1,new ArrayList<>());
     Film testFilm2 = new Film(2,"Test","DESC","G",1,1,1,1,new ArrayList<>());
     List<Film> allFilmsReturn = Arrays.asList(testFilm,testFilm2);
+    Actor testactor = new Actor(1,"First","last",new ArrayList<>());
+    Actor testactor2 = new Actor(1,"Test","this",new ArrayList<>());
+    List<Actor> allActors = Arrays.asList(testactor,testactor2);
 
+
+    //Film Tests
     @Test
     void testGetAllFilms()
     {
@@ -33,97 +39,114 @@ class SakilaFilmsApplicationTests {
         Assertions.assertEquals(allFilmsReturn,actualResult,"can't retrieve all films");
     }
 
-//    @Test
-//    void testGetFilmId()
-//    {
-//        //TOBE
-//
-//        //when(filmRepo.findById(1)).thenReturn(Optional.ofNullable(testFilm));
-//
-//        ResponseEntity<Film> actualResult = testSakila.getFilmId(1);
-//
-//        Assertions.assertEquals(allFilmsReturn,actualResult,"can't retrieve set film");
-//    }
+    @Test
+    void testGetFilmId()
+    {
+        when(filmRepo.findById(1)).thenReturn(Optional.ofNullable(testFilm));
 
-/*
+        Film actualResult = testSakila.getFilmId(1).getBody();
+
+        Assertions.assertEquals(testFilm,actualResult,"can't retrieve set film");
+    }
+
     @Test
     void testGetFilmTitle()
     {
-        testSakila.getFilmTitle("ENCINO ELF");
 
-        verify(testSakila).getFilmTitle("ENCINO ELF");
+        when(filmRepo.findByName("Test")).thenReturn(testFilm);
+
+        Film actualResult = testSakila.getFilmTitle("Test").getBody();
+
+        Assertions.assertEquals(testFilm,actualResult,"can't retrieve film from title");
     }
 
     @Test
     void testGetFilmRating()
     {
-        testSakila.getFilmRating("PG");
+        ArrayList<Film> films = new ArrayList<>();
+        films.add(testFilm);
+        films.add(testFilm2);
 
-        verify(testSakila).getFilmRating("PG");
+        when(filmRepo.findByRating("PG")).thenReturn(films);
+
+        ArrayList<Film> actualResult = testSakila.getFilmRating("PG");
+
+        Assertions.assertEquals(actualResult,films,"can't retrieve film from rating");
     }
 
     @Test
     void testGetFilmLength()
     {
-        testSakila.getFilmLength(101);
+        ArrayList<Film> films = new ArrayList<>();
+        films.add(testFilm);
+        films.add(testFilm2);
 
-        verify(testSakila).getFilmLength(101);
+        when(filmRepo.findByLength("101")).thenReturn(films);
+
+        ArrayList<Film> actualResult = testSakila.getFilmLength(101);
+
+        Assertions.assertEquals(actualResult,films,"can't retrieve film from length");
     }
 
+
+    //Actor Tests
     @Test
     void testGetAllActors()
     {
-        testSakila.getAllActors();
+        when(actorRepo.findAll()).thenReturn(allActors);
 
-        verify(testSakila).getAllActors();
+        Iterable<Actor> actualResult = testSakila.getAllActors();
+
+        Assertions.assertEquals(actualResult,allActors,"can't retrieve all Actors");
     }
 
     @Test
     void testGetActorId()
     {
-        testSakila.getActorId(1);
+        when(actorRepo.findById(1)).thenReturn(Optional.ofNullable(testactor));
 
-        verify(testSakila).getActorId(1);
+        Actor actualResult = testSakila.getActorId(1).getBody();
+
+        Assertions.assertEquals(actualResult,testactor,"can't retrieve all Actors");
     }
 
     @Test
     void testUpdateActor()
     {
-        Actor testActor = new Actor(1,"First","Last",new ArrayList<>());
+        when(actorRepo.findById(1)).thenReturn(Optional.ofNullable(testactor));
 
-        testSakila.updateActor(1,testActor);
+        testSakila.updateActor(1, testactor);
 
-        verify(testSakila).updateActor(1,testActor);
+        verify(actorRepo).save(testactor);
     }
-
-    @Test
-    void testSave()
-    {
-        Actor testActor = new Actor(1,"First","Last",new ArrayList<>());
-
-        testSakila.save(testActor);
-
-        verify(testSakila).save(testActor);
-    }
-
-    @Test
-    void testDeleteActor()
-    {
-        testSakila.deleteActor(1);
-
-        verify(testSakila).deleteActor(1);
-    }
+    //TODO
+//    @Test
+//    void testSave()
+//    {
+//        when(actorRepo.save(testactor)).thenThrow();
+//
+//        testSakila.save(testactor);
+//
+//        verify(testSakila).save(testactor);
+//    }
+    //TODO
+//    @Test
+//    void testDeleteActor()
+//    {
+//        testSakila.deleteActor(1);
+//
+//        verify(actorRepo).delete(testactor);
+//    }
 
     @Test
     void testGet()
     {
-        testSakila.get();
+        when(actorRepo.findAll()).thenReturn(allActors);
 
-        verify(testSakila).get();
+        Iterable<Actor> actualResult =testSakila.get();
+
+        Assertions.assertEquals(allActors,actualResult,"can't retrieve all Actors");
     }
-
- */
-
 
 
 	/*
