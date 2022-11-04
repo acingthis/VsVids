@@ -2,6 +2,7 @@ package ApiComponents.SakilaFilms;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
@@ -120,23 +121,25 @@ class SakilaFilmsApplicationTests {
         verify(actorRepo).save(testactor);
     }
     //TODO
-//    @Test
-//    void testSave()
-//    {
-//        when(actorRepo.save(testactor)).thenThrow();
-//
-//        testSakila.save(testactor);
-//
-//        verify(testSakila).save(testactor);
-//    }
-    //TODO
-//    @Test
-//    void testDeleteActor()
-//    {
-//        testSakila.deleteActor(1);
-//
-//        verify(actorRepo).delete(testactor);
-//    }
+    @Test
+    void testSave()
+    {
+        when(actorRepo.save(testactor)).thenReturn(testactor);
+
+        testSakila.save(testactor);
+
+        verify(actorRepo).save(testactor);
+    }
+
+    @Test
+    void testDeleteActor()
+    {
+        when(actorRepo.findById(1)).thenReturn(Optional.ofNullable(testactor));
+
+        testSakila.deleteActor(1);
+
+        verify(actorRepo).delete(testactor);
+    }
 
     @Test
     void testGet()
