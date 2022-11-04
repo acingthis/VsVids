@@ -1,6 +1,6 @@
 package CucumberTests;
 
-import ApiComponents.SakilaFilms.SakilaFilmsApplication;
+import apiComponentsSakilaFilms.SakilaFilmsApplication;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 

@@ -1,6 +1,6 @@
 package CucumberTests;
 
-import ApiComponents.SakilaFilms.*;
+import apiComponentsSakilaFilms.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class RatingTestStepDef {
 

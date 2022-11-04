@@ -1,15 +1,12 @@
 package CucumberTests;
 
-import ApiComponents.SakilaFilms.*;
+import apiComponentsSakilaFilms.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.en_old.Ac;
 import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.Objects;
 
 public class TitleTestStepDef {
 

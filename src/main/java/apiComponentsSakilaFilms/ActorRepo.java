@@ -1,4 +1,4 @@
-package ApiComponents.SakilaFilms;
+package apiComponentsSakilaFilms;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

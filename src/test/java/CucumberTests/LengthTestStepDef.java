@@ -1,9 +1,9 @@
 package CucumberTests;
 
-import ApiComponents.SakilaFilms.ActorRepo;
-import ApiComponents.SakilaFilms.Film;
-import ApiComponents.SakilaFilms.FilmRepo;
-import ApiComponents.SakilaFilms.SakilaFilmsApplication;
+import apiComponentsSakilaFilms.ActorRepo;
+import apiComponentsSakilaFilms.Film;
+import apiComponentsSakilaFilms.FilmRepo;
+import apiComponentsSakilaFilms.SakilaFilmsApplication;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class LengthTestStepDef {
 

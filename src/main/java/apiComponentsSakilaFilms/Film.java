@@ -1,4 +1,4 @@
-package ApiComponents.SakilaFilms;
+package apiComponentsSakilaFilms;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
