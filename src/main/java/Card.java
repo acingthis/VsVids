@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class Card {
 
-    int Id = 0;
+    int id = 0;
 
-    Card(int Id)
+    Card(int id)
     {
-        this.Id = Id;
+        this.id = id;
     }
 
 }

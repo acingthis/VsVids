@@ -5,23 +5,23 @@ import java.util.HashMap;
 
 public class Deck {
 
-    HashMap<Card, Integer> Players = new HashMap<Card,Integer>();
+    HashMap<Card, Integer> players = new HashMap<Card,Integer>();
 
     Deck()
     {
-        CreateDeck(50);
+        createDeck(50);
     }
 
     //Creates cards and shuffles deck and assigns cards to players
-    public void CreateDeck(int NumCards)
+    public void createDeck(int numCards)
     {
         SecureRandom rand = new SecureRandom();
 
-        int indexAdditions = rand.nextInt(1000) - NumCards;
+        int indexAdditions = rand.nextInt(1000) - numCards;
 
         ArrayList<Integer> indexes = new ArrayList<Integer>();
 
-        for(int x = 0; x < NumCards; x++)
+        for(int x = 0; x < numCards; x++)
         {
             indexes.add(x+indexAdditions);
         }
@@ -29,14 +29,14 @@ public class Deck {
         Collections.shuffle(indexes);
 
         //assignment
-        Players.clear();
-        for(int x = 0; x < NumCards/2; x++)
+        players.clear();
+        for(int x = 0; x < numCards /2; x++)
         {
-            Players.put(new Card(indexes.get(x)),1);
+            players.put(new Card(indexes.get(x)),1);
         }
-        for(int x = NumCards/2; x < NumCards; x++)
+        for(int x = numCards /2; x < numCards; x++)
         {
-            Players.put(new Card(indexes.get(x)),2);
+            players.put(new Card(indexes.get(x)),2);
         }
 
     }

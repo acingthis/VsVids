@@ -45,18 +45,18 @@ public class SakilaFilmsApplication {
 	}
 
 	@GetMapping("/filmTitle/{title}")
-	public Film getFilmTitle(@PathVariable(value = "title") String Title) throws ResourceAccessException {
-		return filmRepo.findByName(Title);
+	public Film getFilmTitle(@PathVariable(value = "title") String title) throws ResourceAccessException {
+		return filmRepo.findByName(title);
 	}
 
 	@GetMapping("/filmRating/{rating}")
-	public ArrayList<Film> getFilmRating(@PathVariable(value = "rating") String Rating) throws ResourceAccessException {
-		return filmRepo.findByRating(Rating);
+	public ArrayList<Film> getFilmRating(@PathVariable(value = "rating") String rating) throws ResourceAccessException {
+		return filmRepo.findByRating(rating);
 	}
 
 	@GetMapping("/films/{length}")
-	public ArrayList<Film> getFilmLength(@PathVariable(value = "length") int Length) throws ResourceAccessException {
-		return filmRepo.findByLength(String.valueOf(Length));
+	public ArrayList<Film> getFilmLength(@PathVariable(value = "length") int length) throws ResourceAccessException {
+		return filmRepo.findByLength(String.valueOf(length));
 	}
 
 

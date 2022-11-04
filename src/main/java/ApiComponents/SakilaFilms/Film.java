@@ -43,9 +43,9 @@ public class Film {
     Collection<Actor> actors;
 
     //Constructors
-    public Film(int ID, String title, String description,String rating, int length, double rentalRate, int rentalDuration, double replacementCost, Collection<Actor> actors)
+    public Film(int id, String title, String description,String rating, int length, double rentalRate, int rentalDuration, double replacementCost, Collection<Actor> actors)
     {
-        this.filmId = ID;
+        this.filmId = id;
         this.title = title;
         this.desc = description;
         this.rating = rating;
@@ -69,7 +69,7 @@ public class Film {
     public double getReplacementCost() { return replacementCost; }
     public Collection<Actor> getActors() { return actors; }
 
-    public void setFilmId(int ID) { filmId = ID; }
+    public void setFilmId(int id) { filmId = id; }
     public void setTitle(String title) { this.title = title; }
     public void setDescription(String description) { this.desc = description; }
     public void setRating(String rating) { this.rating = rating; }
