@@ -3,10 +3,12 @@ package ApiComponents.SakilaFilms;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
@@ -30,15 +32,20 @@ class SakilaFilmsApplicationTests {
 
         Assertions.assertEquals(allFilmsReturn,actualResult,"can't retrieve all films");
     }
+
+//    @Test
+//    void testGetFilmId()
+//    {
+//        //TOBE
+//
+//        //when(filmRepo.findById(1)).thenReturn(Optional.ofNullable(testFilm));
+//
+//        ResponseEntity<Film> actualResult = testSakila.getFilmId(1);
+//
+//        Assertions.assertEquals(allFilmsReturn,actualResult,"can't retrieve set film");
+//    }
+
 /*
-    @Test
-    void testGetFilmId()
-    {
-        testSakila.getFilmId(1);
-
-        verify(testSakila).getFilmId(1);
-    }
-
     @Test
     void testGetFilmTitle()
     {
