@@ -39,21 +39,19 @@ public class SakilaFilmsApplication {
 		return filmRepo.findAll();
 	}
 
-	@GetMapping("/films/{id}")
-	public ResponseEntity<Film> getFilmId(@PathVariable(value = "id") int filmId)
-			throws ResourceAccessException {
-		Film film = filmRepo.findById(filmId)
-				.orElseThrow(() -> new ResourceAccessException("Film not found for this id: " + filmId));
-		return ResponseEntity.ok().body(film);
+	@GetMapping("/filmId/{id}")
+	public Film getFilmId(@PathVariable(value = "id") int filmId) throws ResourceAccessException {
+		Film film = filmRepo.findById(filmId).orElseThrow(() -> new ResourceAccessException("Film not found for this id: " + filmId));
+		return film;
 	}
 
-	@GetMapping("/films/{title}")
-	public ResponseEntity<Film> getFilmTitle(@PathVariable(value = "title") String Title) throws ResourceAccessException {
+	@GetMapping("/filmTitle/{title}")
+	public Film getFilmTitle(@PathVariable(value = "title") String Title) throws ResourceAccessException {
 		Film film = filmRepo.findByName(Title);
-		return ResponseEntity.ok().body(film);
+		return film;
 	}
 
-	@GetMapping("/films/{rating}")
+	@GetMapping("/filmRating/{rating}")
 	public ArrayList<Film> getFilmRating(@PathVariable(value = "rating") String Rating) throws ResourceAccessException {
 		return filmRepo.findByRating(Rating);
 	}
@@ -73,17 +71,14 @@ public class SakilaFilmsApplication {
 	}
 
 	@GetMapping("/actors/{id}")
-	public ResponseEntity<Actor> getActorId(@PathVariable(value = "id") int actorId)
-			throws ResourceAccessException {
-		Actor actor = actorRepo.findById(actorId)
-				.orElseThrow(() -> new ResourceAccessException("Actor not found for this id: " + actorId));
-		return ResponseEntity.ok().body(actor);
+	public Actor getActorId(@PathVariable(value = "id") int actorId) throws ResourceAccessException {
+		Actor actor = actorRepo.findById(actorId).orElseThrow(() -> new ResourceAccessException("Actor not found for this id: " + actorId));
+		return actor;
 	}
 
 	@PutMapping("/actors/{id}")
 	public ResponseEntity<Actor> updateActor(@PathVariable int id,@RequestBody Actor actorDetails) {
-		Actor updateActor = actorRepo.findById(id)
-				.orElseThrow(() -> new ResourceAccessException("Actor doesn't exist with id: " + id));
+		Actor updateActor = actorRepo.findById(id).orElseThrow(() -> new ResourceAccessException("Actor doesn't exist with id: " + id));
 
 		updateActor.setFirstName(actorDetails.getFirstName());
 		updateActor.setLastName(actorDetails.getLastName());

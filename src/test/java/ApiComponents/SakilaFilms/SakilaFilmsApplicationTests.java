@@ -42,7 +42,7 @@ class SakilaFilmsApplicationTests {
     {
         when(filmRepo.findById(1)).thenReturn(Optional.ofNullable(testFilm));
 
-        Film actualResult = testSakila.getFilmId(1).getBody();
+        Film actualResult = testSakila.getFilmId(1);
 
         Assertions.assertEquals(testFilm,actualResult,"can't retrieve set film");
     }
@@ -53,7 +53,7 @@ class SakilaFilmsApplicationTests {
 
         when(filmRepo.findByName("Test")).thenReturn(testFilm);
 
-        Film actualResult = testSakila.getFilmTitle("Test").getBody();
+        Film actualResult = testSakila.getFilmTitle("Test");
 
         Assertions.assertEquals(testFilm,actualResult,"can't retrieve film from title");
     }
@@ -103,7 +103,7 @@ class SakilaFilmsApplicationTests {
     {
         when(actorRepo.findById(1)).thenReturn(Optional.ofNullable(testactor));
 
-        Actor actualResult = testSakila.getActorId(1).getBody();
+        Actor actualResult = testSakila.getActorId(1);
 
         Assertions.assertEquals(actualResult,testactor,"can't retrieve all Actors");
     }
