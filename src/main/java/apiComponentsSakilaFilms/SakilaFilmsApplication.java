@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @SpringBootApplication
 @RestController
 @RequestMapping("/home")
-@CrossOrigin("http://localhost:8080")
+@CrossOrigin (origins = {"http://localhost:8080","http://localhost:3000"})
 public class SakilaFilmsApplication {
 
 	@Autowired
