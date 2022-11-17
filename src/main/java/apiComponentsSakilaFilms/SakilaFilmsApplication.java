@@ -74,8 +74,8 @@ public class SakilaFilmsApplication {
 	}
 
 	@PutMapping("/actors/{id}")
-	public ResponseEntity<Actor> updateActor(@PathVariable int id,@RequestBody Actor actorDetails) {
-		Actor actor = new Actor(actorDetails.getActorId(),actorDetails.getFirstName(),actorDetails.getLastName(),actorDetails.getFilms());
+	public ResponseEntity<Actor> updateActor(@PathVariable int id,@RequestBody ActorModel actorDetails) {
+		Actor actor = new Actor(actorDetails.getActorId(),actorDetails.getFirstName(),actorDetails.getLastName(),null);
 		Actor updateActor = actorRepo.findById(id).orElseThrow(() -> new ResourceAccessException("Actor doesn't exist with id: " + id));
 
 		updateActor.setFirstName(actor.getFirstName());
@@ -87,10 +87,11 @@ public class SakilaFilmsApplication {
 	}
 
 	@PostMapping("/actors")
-	public ResponseEntity<Actor> save(@RequestBody Actor actorDetails) {
+	public ResponseEntity<Actor> save(@RequestBody ActorModel actorDetails) {
+		Actor actor = new Actor(actorDetails.getActorId(),actorDetails.getFirstName(),actorDetails.getLastName(),null);
 
 		try {
-			return new ResponseEntity<>(actorRepo.save(actorDetails), HttpStatus.CREATED);
+			return new ResponseEntity<>(actorRepo.save(actor), HttpStatus.CREATED);
 		}
 		catch (Exception e)
 		{

@@ -23,6 +23,9 @@ class SakilaFilmsApplicationTests {
     List<Film> allFilmsReturn = Arrays.asList(testFilm,testFilm2);
     Actor testactor = new Actor(1,"First","last",new ArrayList<>());
     Actor testactor2 = new Actor(1,"Test","this",new ArrayList<>());
+
+    ActorModel testactorModel = new ActorModel(1,"First","last");
+    ActorModel testactorModel2 = new ActorModel(1,"Test","this");
     List<Actor> allActors = Arrays.asList(testactor,testactor2);
 
 
@@ -113,7 +116,7 @@ class SakilaFilmsApplicationTests {
     {
         when(actorRepo.findById(1)).thenReturn(Optional.ofNullable(testactor));
 
-        testSakila.updateActor(1, testactor);
+        testSakila.updateActor(1, testactorModel);
 
         verify(actorRepo).save(testactor);
     }
@@ -123,9 +126,9 @@ class SakilaFilmsApplicationTests {
     {
         when(actorRepo.save(testactor)).thenReturn(testactor);
 
-        testSakila.save(testactor);
+        testSakila.save(testactorModel);
 
-        verify(actorRepo).save(testactor);
+        verify(actorRepo).save(any(Actor.class));
     }
 
     @Test
