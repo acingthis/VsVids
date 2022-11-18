@@ -31,8 +31,10 @@ public class LengthTest {
   public void length() {
     driver.get("http://localhost:3000/");
     driver.findElement(By.cssSelector(".Choices:nth-child(3)")).click();
+
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     wait.until(ExpectedConditions.alertIsPresent());
+
     if(driver.switchTo().alert().getText().equals("Player 2 wins player 1\'s card"))
     {
       Assertions.assertEquals(driver.switchTo().alert().getText(), "Player 2 wins player 1\'s card", "Alert isn't showing the correct result");

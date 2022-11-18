@@ -17,7 +17,6 @@ Feature: This will look for films with a set Rating.
     Examples:
       | rating | films |
       |  "PG"  | "true" |
-      | "NC-17" | "true" |
       |  "G"  | "true" |
       |  "N"  | "false" |
       |  "PR"  | "false" |
